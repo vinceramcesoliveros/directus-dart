@@ -24,26 +24,19 @@ DirectusCollection _$DirectusCollectionFromJson(Map<String, dynamic> json) =>
       unarchiveValue: json['unarchive_value'] as String?,
     );
 
-Map<String, dynamic> _$DirectusCollectionToJson(DirectusCollection instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('collection', instance.collection);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('note', instance.note);
-  writeNotNull('display_template', instance.displayTemplate);
-  writeNotNull('hidden', instance.hidden);
-  writeNotNull('singleton', instance.singleton);
-  writeNotNull('translations', instance.translations);
-  writeNotNull('archive_field', instance.archiveField);
-  writeNotNull('archive_app_filter', instance.archiveAppFilter);
-  writeNotNull('archive_value', instance.archiveValue);
-  writeNotNull('unarchive_value', instance.unarchiveValue);
-  writeNotNull('sort_field', instance.sortField);
-  return val;
-}
+Map<String, dynamic> _$DirectusCollectionToJson(DirectusCollection instance) =>
+    <String, dynamic>{
+      if (instance.collection case final value?) 'collection': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.note case final value?) 'note': value,
+      if (instance.displayTemplate case final value?) 'display_template': value,
+      if (instance.hidden case final value?) 'hidden': value,
+      if (instance.singleton case final value?) 'singleton': value,
+      if (instance.translations case final value?) 'translations': value,
+      if (instance.archiveField case final value?) 'archive_field': value,
+      if (instance.archiveAppFilter case final value?)
+        'archive_app_filter': value,
+      if (instance.archiveValue case final value?) 'archive_value': value,
+      if (instance.unarchiveValue case final value?) 'unarchive_value': value,
+      if (instance.sortField case final value?) 'sort_field': value,
+    };

@@ -25,25 +25,17 @@ DirectusRole _$DirectusRoleFromJson(Map<String, dynamic> json) => DirectusRole(
           (json['users'] as List<dynamic>?)?.map((e) => e as Object).toList(),
     );
 
-Map<String, dynamic> _$DirectusRoleToJson(DirectusRole instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('name', instance.name);
-  writeNotNull('icon', instance.icon);
-  writeNotNull('description', instance.description);
-  writeNotNull('ip_access', instance.ipAccess);
-  writeNotNull('enforce_tfa', instance.enforceTfa);
-  writeNotNull('module_list', instance.moduleList);
-  writeNotNull('collection_list', instance.collectionList);
-  writeNotNull('admin_access', instance.adminAccess);
-  writeNotNull('app_access', instance.appAccess);
-  writeNotNull('users', instance.users);
-  return val;
-}
+Map<String, dynamic> _$DirectusRoleToJson(DirectusRole instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.icon case final value?) 'icon': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.ipAccess case final value?) 'ip_access': value,
+      if (instance.enforceTfa case final value?) 'enforce_tfa': value,
+      if (instance.moduleList case final value?) 'module_list': value,
+      if (instance.collectionList case final value?) 'collection_list': value,
+      if (instance.adminAccess case final value?) 'admin_access': value,
+      if (instance.appAccess case final value?) 'app_access': value,
+      if (instance.users case final value?) 'users': value,
+    };

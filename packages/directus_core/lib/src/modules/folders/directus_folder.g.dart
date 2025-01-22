@@ -13,17 +13,9 @@ DirectusFolder _$DirectusFolderFromJson(Map<String, dynamic> json) =>
       parent: json['parent'],
     );
 
-Map<String, dynamic> _$DirectusFolderToJson(DirectusFolder instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('name', instance.name);
-  writeNotNull('parent', instance.parent);
-  return val;
-}
+Map<String, dynamic> _$DirectusFolderToJson(DirectusFolder instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.parent case final value?) 'parent': value,
+    };

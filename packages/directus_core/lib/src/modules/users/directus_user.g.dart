@@ -23,28 +23,20 @@ DirectusUser _$DirectusUserFromJson(Map<String, dynamic> json) => DirectusUser(
       role: json['role'],
     );
 
-Map<String, dynamic> _$DirectusUserToJson(DirectusUser instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('first_name', instance.firstName);
-  writeNotNull('last_name', instance.lastName);
-  writeNotNull('email', instance.email);
-  writeNotNull('password', instance.password);
-  writeNotNull('location', instance.location);
-  writeNotNull('title', instance.title);
-  writeNotNull('description', instance.description);
-  writeNotNull('tags', instance.tags);
-  writeNotNull('avatar', instance.avatar);
-  writeNotNull('language', instance.language);
-  writeNotNull('theme', instance.theme);
-  writeNotNull('status', instance.status);
-  writeNotNull('role', instance.role);
-  return val;
-}
+Map<String, dynamic> _$DirectusUserToJson(DirectusUser instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.firstName case final value?) 'first_name': value,
+      if (instance.lastName case final value?) 'last_name': value,
+      if (instance.email case final value?) 'email': value,
+      if (instance.password case final value?) 'password': value,
+      if (instance.location case final value?) 'location': value,
+      if (instance.title case final value?) 'title': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.tags case final value?) 'tags': value,
+      if (instance.avatar case final value?) 'avatar': value,
+      if (instance.language case final value?) 'language': value,
+      if (instance.theme case final value?) 'theme': value,
+      if (instance.status case final value?) 'status': value,
+      if (instance.role case final value?) 'role': value,
+    };

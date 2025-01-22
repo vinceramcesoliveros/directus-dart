@@ -8,7 +8,7 @@ part of 'directus_permission.dart';
 
 DirectusPermission _$DirectusPermissionFromJson(Map<String, dynamic> json) =>
     DirectusPermission(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       role: json['role'] as String?,
       collection: json['collection'] as String?,
       action: json['action'] as String?,
@@ -17,26 +17,18 @@ DirectusPermission _$DirectusPermissionFromJson(Map<String, dynamic> json) =>
       presets: json['presets'] as Map<String, dynamic>?,
       fields:
           (json['fields'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      limit: json['limit'] as int?,
+      limit: (json['limit'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$DirectusPermissionToJson(DirectusPermission instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('role', instance.role);
-  writeNotNull('collection', instance.collection);
-  writeNotNull('action', instance.action);
-  writeNotNull('permissions', instance.permissions);
-  writeNotNull('validation', instance.validation);
-  writeNotNull('presets', instance.presets);
-  writeNotNull('fields', instance.fields);
-  writeNotNull('limit', instance.limit);
-  return val;
-}
+Map<String, dynamic> _$DirectusPermissionToJson(DirectusPermission instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.role case final value?) 'role': value,
+      if (instance.collection case final value?) 'collection': value,
+      if (instance.action case final value?) 'action': value,
+      if (instance.permissions case final value?) 'permissions': value,
+      if (instance.validation case final value?) 'validation': value,
+      if (instance.presets case final value?) 'presets': value,
+      if (instance.fields case final value?) 'fields': value,
+      if (instance.limit case final value?) 'limit': value,
+    };

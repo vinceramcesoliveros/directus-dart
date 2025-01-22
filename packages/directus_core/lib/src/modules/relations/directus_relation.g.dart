@@ -8,7 +8,7 @@ part of 'directus_relation.dart';
 
 DirectusRelation _$DirectusRelationFromJson(Map<String, dynamic> json) =>
     DirectusRelation(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       manyCollection: json['many_collection'] as String?,
       manyField: json['many_field'] as String?,
       manyPrimary: json['many_primary'] as String?,
@@ -20,24 +20,18 @@ DirectusRelation _$DirectusRelationFromJson(Map<String, dynamic> json) =>
       junctionField: json['junction_field'] as String?,
     );
 
-Map<String, dynamic> _$DirectusRelationToJson(DirectusRelation instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('many_collection', instance.manyCollection);
-  writeNotNull('many_field', instance.manyField);
-  writeNotNull('many_primary', instance.manyPrimary);
-  writeNotNull('one_collection', instance.oneCollection);
-  writeNotNull('one_field', instance.oneField);
-  writeNotNull('one_primary', instance.onePrimary);
-  writeNotNull('one_collection_field', instance.oneCollectionField);
-  writeNotNull('one_allowed_collections', instance.oneAllowedCollections);
-  writeNotNull('junction_field', instance.junctionField);
-  return val;
-}
+Map<String, dynamic> _$DirectusRelationToJson(DirectusRelation instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.manyCollection case final value?) 'many_collection': value,
+      if (instance.manyField case final value?) 'many_field': value,
+      if (instance.manyPrimary case final value?) 'many_primary': value,
+      if (instance.oneCollection case final value?) 'one_collection': value,
+      if (instance.oneField case final value?) 'one_field': value,
+      if (instance.onePrimary case final value?) 'one_primary': value,
+      if (instance.oneCollectionField case final value?)
+        'one_collection_field': value,
+      if (instance.oneAllowedCollections case final value?)
+        'one_allowed_collections': value,
+      if (instance.junctionField case final value?) 'junction_field': value,
+    };
